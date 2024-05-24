@@ -21,8 +21,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 
 urlpatterns = [
-    path('', register, name='Register'),
-    path('polls/', PollCreateView.as_view(), name="Poll_Creation"),
+    path('', LoginView.as_view(template_name='Login.html'), name='Login'),
+    path('Poll_Creation/', create_poll, name="Poll_Creation"),
     path('polls/<int:poll_id>/responses/', ResponseCreateView.as_view(), name="Submit_Response"),
     path('polls/<int:poll_id>/results/', PollResultsView.as_view(), name="Poll_Results"),
 

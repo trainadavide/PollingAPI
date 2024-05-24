@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a new poll</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Create a new poll</h1>
+<form method="POST" action="{% url 'Poll_Creation' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div id="options">
+        {{ formset.management_form }}
+        {% for form in formset %}
+            <div class="option-form">
+                {{ form.id }}
+                {{ form.text }}
+                {% if forloop.counter > 2 %}
+                    <button type="button" class="remove-option">Remove</button>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="button" id="add-option">Add Choice</button>
+    <button type="submit">Create</button>
+</form>
+
+<script>
+    $(document).ready(function() {
+        $('#add-choice').click(function() {
+            var formCount = $('#choices .choice-form').length; // Calcola il numero attuale di campi
+            var emptyForm = $('#empty-form').html(); // Ottiene il modello del formset vuoto
+            var newForm = $('<div class="option-form">' + emptyForm + '</div>'); // Crea un nuovo formset basato sul modello vuoto
+
+            newForm.find(':input').each(function() {
+                var name = $(this).attr('name').replace(/_prefix_/, formCount); // Aggiorna l'indice del campo
+                var id = 'id_' + name;
+                $(this).attr({'name': name, 'id': id}).val('');
+            });
+
+            newForm.find('label').each(function() {
+                var newFor = $(this).attr('for').replace(/_prefix_/, formCount); // Aggiorna l'indice del label
+                $(this).attr('for', newFor);
+            });
+
+            if (formCount > 1) { // Cambiato a formCount > 1 per mostrare il pulsante "Remove" dalla terza opzione
+                newForm.append('<button type="button" class="remove-option">Remove</button>'); // Aggiunge il pulsante "Remove" solo se ci sono più di due scelte
+            }
+
+            $('#choices').append(newForm); // Aggiunge il nuovo form alla lista delle scelte
+        });
+
+        $('#choices').on('click', '.remove-option', function() {
+            $(this).closest('.choice-form').remove();
+        });
+    });
+</script>
+
+<!-- Modello del formset vuoto -->
+<div id="empty-form" style="display: none;">
+    {{ formset.empty_form.id }}
+    {{ formset.empty_form.text }}
+</div>
+
+</body>
+</html>

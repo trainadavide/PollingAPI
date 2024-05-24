@@ -1,19 +1,19 @@
 from rest_framework import serializers
-from polls_app.models import Poll, Question, Response
+from polls_app.models import Poll, Option, Response
 
 class ResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Response
         fields = '__all__'
 
-class QuestionSerializer(serializers.ModelSerializer):
+class OptionSerializer(serializers.ModelSerializer):
     responses = ResponseSerializer(many=True ,read_only=True)
     class Meta:
-        model = Question
+        model = Option
         fields = '__all__'
 
 class PollSerializer(serializers.ModelSerializer):
-    questions = QuestionSerializer(many=True,read_only=True)
+    options = OptionSerializer(many=True,read_only=True)
 
     class Meta:
         model = Poll

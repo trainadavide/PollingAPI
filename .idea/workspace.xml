@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32a4c05e-ff28-48f9-bf23-7e0463b746e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/polls_app/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polls_app/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polls_app/templates/Poll_Creation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PollingAPI/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PollingAPI/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls_app/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls_app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +49,7 @@
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -103,6 +112,9 @@
       <workItem from="1716301262234" duration="2428000" />
       <workItem from="1716387628616" duration="579000" />
       <workItem from="1716456479189" duration="609000" />
+      <workItem from="1716533437216" duration="1115000" />
+      <workItem from="1716534915776" duration="1440000" />
+      <workItem from="1716549113615" duration="6165000" />
     </task>
     <servers />
   </component>

@@ -4,7 +4,10 @@ from polls_app.serializer import *
 
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+
 from django.shortcuts import render, redirect
+from .forms import PollForm, OptionFormSet
+
 
 class PollCreateView(generics.CreateAPIView):
     queryset = Poll.objects.all()
@@ -38,3 +41,28 @@ def register(request):
 
 def dashboard(request):
     return render(request, 'Dashboard.html')
+
+def create_poll(request):
+    if request.method == 'POST':
+        form = PollForm(request.POST)
+        formset = OptionFormSet(request.POST, prefix='options')
+        if form.is_valid() and formset.is_valid():
+            poll = form.save(commit=False)
+            poll.user = request.user
+            poll.save()
+
+            for form in formset:
+                if form.cleaned_data.get('text'):
+                    choice = form.save(commit=False)
+                    choice.poll = poll
+                    choice.save()
+
+            return redirect('Dashboard')
+        else:
+            print("Form is invalid")
+            print("Form.errors: ", form.errors)
+            print("Formset.errors: ", formset.errors)
+    else:
+        form = PollForm()
+        formset = OptionFormSet(prefix='options')
+    return render(request, 'Poll_Creation.html', {'form': form, 'formset': formset})
