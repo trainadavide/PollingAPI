@@ -2,11 +2,32 @@
 <html>
     <head>
         <title>Dashboard</title>
+        <link rel="stylesheet" href="../static/style.css">
     </head>
     <body>
-        <h1>Dashboard</h1>
-        <p>Welcome, {{ user.username }}!</p>
-        <a href="{% url 'Logout' %}">Logout</a>
-        <a href="{% url 'Poll_Creation' %}">Create Poll</a>
+    <div class="navbar">
+        <h1 class="main-title">Polls</h1>
+        <p class="nav-item">{{ user.username }}</p>
+        <a class="nav-item" href="{% url 'Login' %}">Logout</a>
+    </div>
+
+        <h2>Your Polls</h2>
+        <button>
+            <a class="new-poll" href="{% url 'Poll_Creation' %}">Create Poll</a>
+        </button>
+
+        {% for poll in polls %}
+            <div class="poll-view">
+                <h3 class="poll-title">{{ poll.title }}</h3>
+                {% for option in poll.option.all %}
+                    <p>{{ option.text }}</p>
+                {% endfor %}
+                <i class="author">{{ poll.user }}</i>
+                <!-- Aggiungi qui ulteriori dettagli sul sondaggio se necessario -->
+            </div>
+        {% empty %}
+            <p>No polls available.</p>
+        {% endfor %}
+
     </body>
 </html>

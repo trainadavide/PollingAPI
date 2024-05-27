@@ -12,4 +12,4 @@ class OptionForm(forms.ModelForm):
         model = Option
         fields = ['text']
 
-OptionFormSet = inLineFormSetFactory(Poll, Option, form=OptionForm, extra=10)
+OptionFormSet = inLineFormSetFactory(Poll, Option, form=OptionForm, extra=2, can_delete=True)

@@ -3,6 +3,7 @@
 <head>
     <title>Create a new poll</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
 <h1>Create a new poll</h1>
@@ -28,34 +29,43 @@
 </form>
 
 <script>
-    $(document).ready(function() {
-        $('#add-choice').click(function() {
-            var formCount = $('#choices .choice-form').length; // Calcola il numero attuale di campi
-            var emptyForm = $('#empty-form').html(); // Ottiene il modello del formset vuoto
-            var newForm = $('<div class="option-form">' + emptyForm + '</div>'); // Crea un nuovo formset basato sul modello vuoto
+   $(document).ready(function() {
+    function updateFormCount(){
+        var formCount = $('#options .option-form').length;
+        $('#id_options-TOTAL_FORMS').val(formCount);
+    }
+    $('#add-option').click(function() {
+        var formCount = $('#options .option-form').length;
+        var emptyForm = $('#empty-form').html();
+        var newForm = $('<div class="option-form">' + emptyForm + '</div>');
 
-            newForm.find(':input').each(function() {
-                var name = $(this).attr('name').replace(/_prefix_/, formCount); // Aggiorna l'indice del campo
-                var id = 'id_' + name;
-                $(this).attr({'name': name, 'id': id}).val('');
-            });
-
-            newForm.find('label').each(function() {
-                var newFor = $(this).attr('for').replace(/_prefix_/, formCount); // Aggiorna l'indice del label
-                $(this).attr('for', newFor);
-            });
-
-            if (formCount > 1) { // Cambiato a formCount > 1 per mostrare il pulsante "Remove" dalla terza opzione
-                newForm.append('<button type="button" class="remove-option">Remove</button>'); // Aggiunge il pulsante "Remove" solo se ci sono più di due scelte
-            }
-
-            $('#choices').append(newForm); // Aggiunge il nuovo form alla lista delle scelte
+        newForm.find(':input').each(function() {
+            var name = $(this).attr('name').replace(/__prefix__/, formCount);
+            var id = 'id_' + name;
+            $(this).attr({'name': name, 'id': id}).val('');
         });
 
-        $('#choices').on('click', '.remove-option', function() {
-            $(this).closest('.choice-form').remove();
+        newForm.find('label').each(function() {
+            var newFor = $(this).attr('for').replace(/__prefix__/, formCount);
+            $(this).attr('for', newFor);
         });
+
+        if (formCount > 1) {
+            newForm.append('<button type="button" class="remove-option">Remove</button>');
+        }
+
+        $('#options').append(newForm);
+        updateFormCount()
     });
+
+    $('#options').on('click', '.remove-option', function() {
+        $(this).closest('.option-form').remove();
+        updateFormCount()
+    });
+    $('form').submit(function() {
+        updateFormCount();
+    });
+});
 </script>
 
 <!-- Modello del formset vuoto -->

@@ -1,0 +1,49 @@
+.poll-view{
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fffdab;
+}
+
+.main-title{
+    align-self: center;
+    margin-left: 43%;
+    margin-right: 30%;
+    font-size: 50px;
+    font-family:Algerian;
+}
+
+.navbar{
+    background-color: #4f4f4f;
+    color: white;
+    align-items: center;
+    display: flex;
+}
+
+.nav-item{
+    margin-left: 1%
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: #fffdab;
+}
+
+.new-poll{
+    color: black !important;
+}
+
+.poll-title{
+    font-size: 30px;
+    margin-top: -1%;
+    font-family: Calibri;
+}
+
+.author{
+    display: block;
+    text-align: right;
+}
