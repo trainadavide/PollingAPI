@@ -64,7 +64,7 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'pollingapi.up.railway.app',
+    'https://pollingapi.up.railway.app',
 ]
 
 ROOT_URLCONF = 'PollingAPI.urls'
