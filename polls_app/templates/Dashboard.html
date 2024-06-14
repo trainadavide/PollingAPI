@@ -18,10 +18,28 @@
 
         {% for poll in polls %}
             <div class="poll-view">
-                <h3 class="poll-title">{{ poll.title }}</h3>
+            <h3 class="poll-title">{{ poll.title }}</h3>
                 {% for option in poll.option.all %}
-                    <p>{{ option.text }}</p>
+                    <form method="POST" action="{% url 'vote' poll.id option.id %}">
+                    {% csrf_token %}
+                        <div>{{ option.text }}
+                            {% if user not in poll.responded_users.all %}
+                                <button class="vote" type="submit">Vote</button>
+                            {% endif %}
+
+                            <i class="votes" style="margin-left: 50px">{{ option.votes }} votes</i>
+                        </div>
+                        <br>
+                    </form>
                 {% endfor %}
+                 {% if user == poll.user %}
+                     <form method="POST" action="{% url 'Delete_poll' poll.id %}">
+                         {% csrf_token %}
+                        <button class="delete" style=" height: 30px; width: 60px; color: white; background-color: red;" type="submit">
+                        Delete
+                        </button>
+                    </form>
+                {% endif %}
                 <i class="author">{{ poll.user }}</i>
                 <!-- Aggiungi qui ulteriori dettagli sul sondaggio se necessario -->
             </div>

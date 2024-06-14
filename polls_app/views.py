@@ -8,7 +8,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from .forms import PollForm, OptionFormSet
 
-from .models import Poll
+from .models import Poll, Option
+from django.http import JsonResponse
 
 
 class PollCreateView(generics.CreateAPIView):
@@ -41,6 +42,7 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'Register.html', {'form': form})
 
+
 def dashboard(request):
     polls = Poll.objects.all()
     return render(request, 'Dashboard.html', {'polls': polls})
@@ -69,3 +71,23 @@ def create_poll(request):
         form = PollForm()
         formset = OptionFormSet(prefix='options')
     return render(request, 'Poll_Creation.html', {'form': form, 'formset': formset})
+
+def vote(request, poll_id, option_id):
+    if request.method == 'POST':
+        option = Option.objects.get(id=option_id)
+        option.votes += 1
+        option.save()
+
+        poll = Poll.objects.get(id=poll_id)
+
+        poll.responded_users.add(request.user)
+        poll.save()
+
+        return redirect('Dashboard')
+
+def Delete_poll(request, poll_id):
+    if request.method == 'POST':
+        poll = Poll.objects.get(id=poll_id)
+        if request.user == poll.user:
+            poll.delete()
+        return redirect('Dashboard')
