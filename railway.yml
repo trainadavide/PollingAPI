@@ -1,0 +1,11 @@
+services:
+  web:
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y libjpeg-dev zlib1g-dev  # Installa dipendenze di sistema
+      python -m pip install --upgrade pip setuptools wheel
+      python -m pip install -r requirements.txt  # Installa le dipendenze Python
+      python manage.py collectstatic --noinput
+    runCommand: gunicorn PollingAPI.wsgi:application --bind 0.0.0.0:$PORT
+    env:
+      PYTHONUNBUFFERED: 1
