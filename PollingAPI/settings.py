@@ -63,6 +63,10 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'pollingapi.up.railway.app',
+]
+
 ROOT_URLCONF = 'PollingAPI.urls'
 
 TEMPLATES = [
