@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="32a4c05e-ff28-48f9-bf23-7e0463b746e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PollingAPI/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PollingAPI/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls_app/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls_app/templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/templates/Login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls_app/templates/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/templates/Register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls_app/templates/Poll_Creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/templates/Poll_Creation.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +130,7 @@
       <workItem from="1718353398101" duration="4986000" />
       <workItem from="1718366526443" duration="9859000" />
       <workItem from="1718609152562" duration="224000" />
-      <workItem from="1718625276994" duration="1591000" />
+      <workItem from="1718625276994" duration="3206000" />
     </task>
     <servers />
   </component>
