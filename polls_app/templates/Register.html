@@ -4,12 +4,15 @@
         <title>Register</title>
     </head>
     <body>
-        <h1>Register</h1>
+    <div style="background-color: #2e353d; color: white; margin-left: 32.5%; width: 25%; padding: 5%;">
+        <h1 style="font-family: Algerian; margin-left: 25%; margin-bottom: 10%; margin-top: -10%">Register</h1>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Register</button>
+            <button style="background-color: #5cb85c" type="submit">Register</button>
         </form>
-        <a href="{% url 'Login' %}"> Already have an account? Login</a>
+        <br>
+        <a style="color: white" href="{% url 'Login' %}"> Already have an account? Login</a>
+    </div>
     </body>
 </html>

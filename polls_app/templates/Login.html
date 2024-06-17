@@ -2,14 +2,18 @@
 <html>
     <head>
         <title>Login</title>
+        <link rel="stylesheet" href="../static/style.css">
     </head>
     <body>
-            <h1>Login</h1>
+        <div style="background-color: #2e353d; color: white; margin-left: 32.5%; width: 25%; padding: 5%;">
+            <h1 style="font-family: Algerian; margin-left: 35%; margin-bottom: 10%; margin-top: -10%">Login</h1>
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Login</button>
+                <button style="background-color: #5cb85c" type="submit">Login</button>
             </form>
+            <br>
             <a href="{% url 'Register' %}">Don't have an account? Register</a>
+        </div>
     </body>
 </html>
