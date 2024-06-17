@@ -6,28 +6,31 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-<h1>Create a new poll</h1>
-<form method="POST" action="{% url 'Poll_Creation' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
+<div style="background-color: #2e353d; color: white; margin-left: 32.5%; width: 25%; padding: 5%;">
+    <h1 style="font-family: Algerian; margin-bottom: 10%; margin-top: -10%">Create a new poll</h1>
+    <form method="POST" action="{% url 'Poll_Creation' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
 
-    <div id="options">
-        {{ formset.management_form }}
-        {% for form in formset %}
-            <div class="option-form">
-                {{ form.id }}
-                {{ form.text }}
-                {% if forloop.counter > 2 %}
-                    <button type="button" class="remove-option">Remove</button>
-                {% endif %}
-            </div>
-        {% endfor %}
-    </div>
+        <div id="options">
+            {{ formset.management_form }}
+            {% for form in formset %}
+                <div class="option-form">
+                    {{ form.id }}
+                    {{ form.text }}
+                    {% if forloop.counter > 2 %}
+                        <button type="button" class="remove-option" style="background-color: darkred; color: white;">Remove</button>
+                    {% endif %}
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+        <br>
 
-    <button type="button" id="add-option">Add Choice</button>
-    <button type="submit">Create</button>
-</form>
-
+        <button type="button" id="add-option">Add Choice</button>
+        <button type="submit" style="background-color: #5cb85c">Create</button>
+    </form>
+</div>
 <script>
    $(document).ready(function() {
     function updateFormCount(){
@@ -37,7 +40,7 @@
     $('#add-option').click(function() {
         var formCount = $('#options .option-form').length;
         var emptyForm = $('#empty-form').html();
-        var newForm = $('<div class="option-form">' + emptyForm + '</div>');
+        var newForm = $('<div class="option-form">' + emptyForm + '</div><br>');
 
         newForm.find(':input').each(function() {
             var name = $(this).attr('name').replace(/__prefix__/, formCount);
@@ -51,7 +54,7 @@
         });
 
         if (formCount > 1) {
-            newForm.append('<button type="button" class="remove-option">Remove</button>');
+            newForm.append('<button type="button" class="remove-option" style="background-color: darkred; color: white">Remove</button>');
         }
 
         $('#options').append(newForm);
