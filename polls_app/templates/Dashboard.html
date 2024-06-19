@@ -11,13 +11,14 @@
         <a class="nav-item" href="{% url 'Login' %}">Logout</a>
     </div>
 
-        <h2>Your Polls</h2>
+        <a href="{% url 'UserPolls' user.id %}" style="color: black; text-decoration: underline; font-size: xx-large">Your Polls</a>
+    <br>
         <button>
             <a class="new-poll" href="{% url 'Poll_Creation' %}">Create Poll</a>
         </button>
 
         {% for poll in polls %}
-            <div class="poll-view">
+            <div class="poll-view" style="background-color: rgb(28,65,108); color: white">
             <h3 class="poll-title">{{ poll.title }}</h3>
                 {% for option in poll.option.all %}
                     <form method="POST" action="{% url 'vote' poll.id option.id %}">
@@ -26,8 +27,8 @@
                             {% if user not in poll.responded_users.all %}
                                 <button class="vote" type="submit">Vote</button>
                             {% endif %}
-
                             <i class="votes" style="margin-left: 50px">{{ option.votes }} votes</i>
+
                         </div>
                         <br>
                     </form>
@@ -40,7 +41,7 @@
                         </button>
                     </form>
                 {% endif %}
-                <i class="author">{{ poll.user }}</i>
+                <a class="author" style="color: white; text-decoration: underline" href="{% url 'UserPolls' poll.user.id %}">{{ poll.user }}</a>
                 <!-- Aggiungi qui ulteriori dettagli sul sondaggio se necessario -->
             </div>
         {% empty %}

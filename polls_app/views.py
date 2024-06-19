@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from .forms import PollForm, OptionFormSet
 
-from .models import Poll, Option
+from .models import Poll, Option, User
 from django.http import JsonResponse
 
 
@@ -91,3 +91,8 @@ def Delete_poll(request, poll_id):
         if request.user == poll.user:
             poll.delete()
         return redirect('Dashboard')
+
+def UserPolls(request, user_id):
+    selected_user = User.objects.get(id=user_id)
+    user_polls = Poll.objects.filter(user_id=user_id)
+    return render(request, 'User.html', {'selected_user': selected_user, 'user_polls': user_polls})

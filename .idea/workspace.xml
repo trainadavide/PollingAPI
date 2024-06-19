@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32a4c05e-ff28-48f9-bf23-7e0463b746e5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls_app/templates/Poll_Creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls_app/templates/Poll_Creation.html" afterDir="false" />
-    </list>
+    <list default="true" id="32a4c05e-ff28-48f9-bf23-7e0463b746e5" name="Changes" comment="create poll styled" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,11 +126,28 @@
       <workItem from="1718353398101" duration="4986000" />
       <workItem from="1718366526443" duration="9859000" />
       <workItem from="1718609152562" duration="224000" />
-      <workItem from="1718625276994" duration="3206000" />
+      <workItem from="1718625276994" duration="4968000" />
+      <workItem from="1718713020135" duration="164000" />
+      <workItem from="1718716074211" duration="3012000" />
+      <workItem from="1718799004228" duration="474000" />
+      <workItem from="1718803119056" duration="2487000" />
     </task>
+    <task id="LOCAL-00001" summary="create poll styled">
+      <option name="closed" value="true" />
+      <created>1718629993842</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718629993842</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create poll styled" />
+    <option name="LAST_COMMIT_MESSAGE" value="create poll styled" />
   </component>
 </project>

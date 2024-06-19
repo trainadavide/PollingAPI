@@ -19,6 +19,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='Login.html'), name='Login'),
     path('logout/', LogoutView.as_view(), name='Logout'),
     path('dashboard/', dashboard, name='Dashboard'),
+    path('accounts/<int:user_id>/', views.UserPolls, name='UserPolls'),
 
     path('Delete_poll/<int:poll_id>/', views.Delete_poll, name='Delete_poll'),
 ]
