@@ -19,9 +19,6 @@
                     <form method="POST" action="{% url 'vote' poll.id option.id %}">
                     {% csrf_token %}
                         <div>{{ option.text }}
-                            {% if user not in poll.responded_users.all %}
-                                <button class="vote" type="submit">Vote</button>
-                            {% endif %}
 
                             <i class="votes" style="margin-left: 50px">{{ option.votes }} votes</i>
                         </div>
